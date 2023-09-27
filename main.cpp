@@ -4,18 +4,19 @@
 using namespace std;
 
 int main() {
-    double epsilon, x, sum=1;
-    int64_t fact=1;
+    double epsilon, x, sum=1, temp;
     int n=1;
 
-    cin >> x;
-    cin >> epsilon;
+    cin >> x >> epsilon;
 
-    while (epsilon < fabs((pow(x, n)/fact))) {
-        fact = fact * n;
-        sum = sum + (pow(x, n)/fact);
+    temp = x;
+
+    while (epsilon < fabs(temp)){
+        sum += temp;
         n++;
+        temp = temp * x/n;
     }
+
 
     cout << sum << endl;
     cout << pow(exp(1), x);
